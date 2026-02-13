@@ -1,0 +1,229 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles for Tiptap editor */
+.ProseMirror {
+  @apply p-6 min-h-[100%] focus:outline-none text-gray-800;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.ProseMirror p.is-editor-empty:first-child::before {
+  @apply text-gray-400 float-left h-0 pointer-events-none;
+  content: attr(data-placeholder);
+}
+
+/* Chat interface styles */
+.chat-message {
+  @apply p-3 rounded-lg mb-2 max-w-[80%];
+}
+
+.tiptap.ProseMirror{
+  padding: 0.5rem 0.15rem;
+}
+
+/* 全局滚动条样式 */
+::-webkit-scrollbar {
+  width: 3px;
+  height: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.15);
+  border-radius: 1.5px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0.03);
+  border-radius: 1.5px;
+}
+
+/* Firefox 滚动条样式 */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.15) rgba(0, 0, 0, 0.03);
+}
+
+/* 打印样式 - 只显示编辑器内容 */
+@media print {
+  /* 隐藏所有非编辑器元素 */
+  .file-sidebar-container,
+  .chat-panel,
+  .sidebar-toggle-button,
+  .editor-header,
+  .editor-actions,
+  .custom-title-bar,
+  .title-bar,
+  .editor-toolbar,
+  .toolbar-left,
+  .toolbar-right,
+  .save-status-container,
+  nav,
+  header,
+  footer,
+  .toolbar,
+  .menu-bar,
+  .app-icon,
+  .window-controls,
+  .menu-container {
+    display: none !important;
+  }
+  
+  /* 移除所有可能的滚动和高度限制 */
+  * {
+    overflow: visible !important;
+    max-height: none !important;
+    height: auto !important;
+    max-width: none !important;
+    flex: none !important;
+    position: static !important;
+  }
+  
+  /* 特别针对body和html */
+  html, body {
+    height: auto !important;
+    overflow: visible !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: none !important;
+  }
+  
+  /* 强制重置页面布局 */
+  @page {
+    margin: 0;
+    size: A4;
+  }
+  
+  /* 确保主容器占满整个页面 */
+  .app-container,
+  .main-content,
+  .editor-wrapper {
+    width: 100% !important;
+    max-width: none !important;
+    height: auto !important;
+    max-height: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+    display: block !important;
+    position: static !important;
+    flex: none !important;
+    flex-direction: column !important;
+    flex-wrap: nowrap !important;
+    align-items: stretch !important;
+    justify-content: flex-start !important;
+  }
+  
+  /* 特别处理main-content的flex布局 */
+  .main-content {
+    display: block !important;
+    flex-direction: row !important;
+  }
+  
+  /* 移除所有可能的滚动容器限制 */
+  .editor-container,
+  .tiptap-editor,
+  .editor-content {
+    width: 100% !important;
+    max-width: none !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    position: static !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    flex: none !important;
+  }
+  
+  /* 编辑器样式优化 - 使用绝对定位确保占满整个页面 */
+  .ProseMirror {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    height: 100vh !important;
+    max-width: none !important;
+    max-height: none !important;
+    margin: 0 !important;
+    padding: 2cm !important;
+    box-sizing: border-box !important;
+    border: none !important;
+    box-shadow: none !important;
+    background: white !important;
+    color: black !important;
+    font-size: 12pt !important;
+    line-height: 1.5 !important;
+    overflow: visible !important;
+    z-index: 9999 !important;
+  }
+  
+  /* 确保文本在打印时清晰可读 */
+  .ProseMirror h1 {
+    font-size: 18pt !important;
+    margin: 1em 0 0.5em 0 !important;
+  }
+  
+  .ProseMirror h2 {
+    font-size: 16pt !important;
+    margin: 1em 0 0.5em 0 !important;
+  }
+  
+  .ProseMirror h3 {
+    font-size: 14pt !important;
+    margin: 1em 0 0.5em 0 !important;
+  }
+  
+  .ProseMirror p {
+    margin: 0.5em 0 !important;
+  }
+  
+  .ProseMirror ul, .ProseMirror ol {
+    margin: 0.5em 0 !important;
+    padding-left: 1.5em !important;
+  }
+  
+  .ProseMirror blockquote {
+    margin: 1em 0 !important;
+    padding-left: 1em !important;
+    border-left: 3px solid #ccc !important;
+    font-style: italic !important;
+  }
+  
+  .ProseMirror code {
+    background-color: #f5f5f5 !important;
+    padding: 0.2em 0.4em !important;
+    border-radius: 3px !important;
+    font-family: 'Courier New', monospace !important;
+  }
+  
+  .ProseMirror pre {
+    background-color: #f5f5f5 !important;
+    padding: 1em !important;
+    border-radius: 5px !important;
+    overflow: visible !important;
+    white-space: pre-wrap !important;
+  }
+  
+  /* 分页控制 */
+  .ProseMirror h1, .ProseMirror h2, .ProseMirror h3 {
+    page-break-after: avoid !important;
+    page-break-inside: avoid !important;
+  }
+  
+  .ProseMirror p, .ProseMirror li {
+    page-break-inside: avoid !important;
+    orphans: 3 !important;
+    widows: 3 !important;
+  }
+  
+  .ProseMirror pre, .ProseMirror blockquote {
+    page-break-inside: avoid !important;
+  }
+}
+

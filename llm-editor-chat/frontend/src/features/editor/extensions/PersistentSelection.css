@@ -1,0 +1,11 @@
+/* 持久化选择样式 */
+.persistent-selection {
+  background-color: rgba(0, 100, 255, 0.2);
+  border-radius: 2px;
+}
+
+/* 确保持久化选择在编辑器失去焦点时仍然可见 */
+.ProseMirror:not(:focus) .persistent-selection {
+  display: inline;
+  pointer-events: none;
+}

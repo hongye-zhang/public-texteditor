@@ -1,0 +1,48 @@
+{
+  "actions": {
+    "insert_text": {
+      "type": "insert-text",
+      "description": "在当前位置插入内容",
+      "payload_schema": {
+        "content": "string",
+        "position": "\"cursor\"|\"start\"|\"end\"",
+        "partial": "boolean?"
+      }
+    },
+    "replace_text": {
+      "type": "replace-text",
+      "description": "替换选中的文本",
+      "payload_schema": {
+        "content": "string",
+        "start": "number",
+        "end": "number",
+        "partial": "boolean?"
+      }
+    },
+    "replace_all": {
+      "type": "replace-all",
+      "description": "替换整个编辑器内容",
+      "payload_schema": {
+        "content": "string",
+        "partial": "boolean?"
+      }
+    },
+    "delete_text": {
+      "type": "delete-text",
+      "description": "删除选中的文本",
+      "payload_schema": {
+        "start": "number",
+        "end": "number",
+        "partial": "boolean?"
+      }
+    },
+    "insert_image": {
+      "type": "insert-image",
+      "description": "在当前位置插入图像",
+      "payload_schema": {
+        "image_data": "string",
+        "position": "\"cursor\"|\"start\"|\"end\""
+      }
+    }
+  }
+}

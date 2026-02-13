@@ -1,0 +1,33 @@
+{
+  "sections": [
+    {
+      "title": "Document Total",
+      "type": "",
+      "content": "Coalition Wars Austerlitz aftermath Peninsular War, 1807-1814 Battle Corunna Austrian strategy",
+      "start_line": 0,
+      "end_line": 30
+    },
+    {
+      "title": "Background",
+      "type": "heading",
+      "content": "Coalition Wars and Austerlitz aftermath leading to Peninsular War",
+      "start_line": 1,
+      "end_line": 30
+    },
+    {
+      "title": "Peninsular War",
+      "type": "heading",
+      "content": "French invasion of Portugal, Peninsular War, French victory at Corunna",
+      "start_line": 11,
+      "end_line": 20
+    },
+    {
+      "title": "Austria plans for war",
+      "type": "heading",
+      "content": "Austria seeks Prussia's help but French intervention leads to exile. France withdraws troops, Austria and Prussia request British aid.",
+      "start_line": 21,
+      "end_line": 30
+    }
+  ],
+  "total_lines": 31
+}

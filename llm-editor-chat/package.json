@@ -1,0 +1,13 @@
+{
+  "scripts": {
+    "sync-menu": "node scripts/sync-menu-config.js"
+  },
+  "dependencies": {
+    "@tiptap/extension-bubble-menu": "^2.11.7",
+    "uuid": "^11.1.0"
+  },
+  "devDependencies": {
+    "@types/marked": "^5.0.2",
+    "@types/uuid": "^10.0.0"
+  }
+}

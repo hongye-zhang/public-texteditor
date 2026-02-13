@@ -1,0 +1,65 @@
+/* 基础修订样式 */
+.revision {
+  border-radius: 3px;
+  padding: 0 2px;
+  margin: 0 1px;
+}
+
+/* 待处理状态 */
+.revision-pending {
+  
+}
+
+/* 已接受状态 */
+.revision-accepted {
+  outline: 1px solid #4caf50;
+}
+
+/* 已拒绝状态 */
+.revision-rejected {
+  outline: 1px solid #f44336;
+}
+
+/* 添加修订 */
+.revision-addition {
+  background-color: rgba(76, 175, 80, 0.05);
+  color: #2e7d32;
+}
+
+/* 删除修订 */
+.revision-deletion {
+  background-color: rgba(244, 67, 54, 0.05);
+  color: #c62828;
+}
+
+/* 替换修订 */
+.revision-substitution {
+  background-color: rgba(33, 150, 243, 0.05);
+}
+
+/* 替换修订中的原始内容 */
+.revision-original {
+  display: block;
+  color: #c62828;
+  background-color: rgba(244, 67, 54, 0.05);
+}
+
+/* 替换修订中的箭头 */
+.revision-arrow {
+  margin: 0 5px;
+  color: #555;
+  font-weight: bold;
+}
+
+/* 替换修订中的新内容 */
+.revision-new {
+  color: #2e7d32;
+  background-color: rgba(76, 175, 80, 0.05);
+}
+
+/* 段落级修订样式 */
+.paragraph-revision {
+  display: block;
+  margin-top: 0.5em;
+  padding-top: 0.5em;
+}

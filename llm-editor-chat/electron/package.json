@@ -1,0 +1,74 @@
+{
+  "name": "texteditor-electron",
+  "version": "1.0.0",
+  "description": "Electron version of the text editor with embedded Python backend",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . --dev",
+    "package-python": "node build-scripts/package-python-backend.js",
+    "prebuild": "npm run package-python",
+    "build": "electron-builder",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^29.0.0",
+    "electron-builder": "^24.9.1",
+    "electron-rebuild": "^3.2.9",
+    "fs-extra": "^11.2.0"
+  },
+  "dependencies": {
+    "keytar": "^7.9.0",
+    "wait-on": "^7.2.0"
+  },
+  "build": {
+    "appId": "com.texteditor.app",
+    "productName": "LLM Text Editor",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "**/*",
+      "!**/node_modules/*/{CHANGELOG.md,README.md,README,readme.md,readme}",
+      "!**/node_modules/*/{test,__tests__,tests,powered-test,example,examples}",
+      "!**/node_modules/*.d.ts",
+      "!**/node_modules/.bin",
+      "!**/*.{iml,o,hprof,orig,pyc,pyo,rbc,swp,csproj,sln,xproj}",
+      "!.editorconfig",
+      "!**/._*",
+      "!**/{.DS_Store,.git,.hg,.svn,CVS,RCS,SCCS,.gitignore,.gitattributes}",
+      "!**/{__pycache__,thumbs.db,.flowconfig,.idea,.vs,.nyc_output}",
+      "!**/{appveyor.yml,.travis.yml,circle.yml}",
+      "!**/{npm-debug.log,yarn.lock,.yarn-integrity,.yarn-metadata.json}"
+    ],
+    "extraResources": [
+      {
+        "from": "python_backend",
+        "to": "python_backend",
+        "filter": [
+          "**/*"
+        ]
+      }
+    ],
+    "win": {
+      "target": "nsis"
+    },
+    "mac": {
+      "target": "dmg",
+      "extraFiles": [
+        {
+          "from": "python_backend",
+          "to": "Resources/python_backend"
+        }
+      ]
+    },
+    "linux": {
+      "target": "AppImage"
+    },
+    "asarUnpack": [
+      "python_backend/**/*"
+    ]
+  }
+}
